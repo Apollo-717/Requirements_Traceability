@@ -11,7 +11,7 @@ The program processes `requirements.txt` which contains Non-Functional Requireme
 
 ## Installation and Usage
 
-### Method 1: Using UV (Recommended for WSL)
+## Method 1: Using UV (Recommended for WSL)
 
 1. **Clone the repository and navigate to the project directory:**
    ```bash
@@ -61,7 +61,7 @@ The program processes `requirements.txt` which contains Non-Functional Requireme
    uv run python main.py
    ```
 
-### Method 2: Using Python venv
+## Method 2: Using Python venv
 
 1. **Clone the repository:**
    ```bash
@@ -127,6 +127,27 @@ The program processes `requirements.txt` which contains Non-Functional Requireme
 - Python 3.x
 - NLTK library
 - UV (for Method 1)
+
+## Configuration
+
+To change the behavior of the similarity calculations, modify these variables in `main.py`:
+
+```python
+do_stop_words = True
+do_stemming = True
+do_lemmatization = False
+do_parts_of_speech = False
+
+do_thresholding = False
+similarity_threshold = 0.2
+```
+
+- **`do_stop_words`**: Enable/disable stop word removal
+- **`do_stemming`**: Enable/disable word stemming
+- **`do_lemmatization`**: Enable/disable word lemmatization
+- **`do_parts_of_speech`**: Enable/disable part-of-speech tagging
+- **`do_thresholding`**: Enable/disable similarity threshold filtering
+- **`similarity_threshold`**: Set the minimum similarity score to display (when thresholding is enabled)
 
 ## Project Structure
 

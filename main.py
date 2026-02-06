@@ -5,12 +5,6 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import string
 
-
-
-
-
-
-
 # nltk.download('punkt')
 # nltk.download('stopwords')
 # nltk.download('wordnet')
@@ -73,7 +67,7 @@ def similarity(nfrs, frs):
                     cosine = 1
                 else:
                     cosine = 0
-                    
+
             similarities.append(round(cosine, 3))
 
         print(f"FR {count} Similarities to NFRs: {similarities}")
