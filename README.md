@@ -149,14 +149,6 @@ similarity_threshold = 0.2
 - **`do_thresholding`**: Enable/disable similarity threshold filtering
 - **`similarity_threshold`**: Set the minimum similarity score to display (when thresholding is enabled)
 
-## Project Structure
-
-```
-Requirements_Traceability/
-├── main.py
-├── requirements.txt
-└── README.md
-```
 
 ## Course Information
 
