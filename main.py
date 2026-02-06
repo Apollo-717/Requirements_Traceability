@@ -40,48 +40,45 @@ def preprocess_tokens(tokens):
 
 def similarity(nfrs, frs):
     count = 0
-    l1 = []
-    l2 = []
-    for fr_tokens in frs:
-        count += 1
-        fr_set = set(fr_tokens)
-        similarities = []
+    with open("output.txt", "w") as output_file:
+        for fr_tokens in frs:
+            count += 1
+            fr_set = set(fr_tokens)
+            similarities = []
 
-        for nfr_tokens in nfrs:
-            nfr_set = set(nfr_tokens)
+            for nfr_tokens in nfrs:
+                nfr_set = set(nfr_tokens)
 
-            intersection = fr_set.intersection(nfr_set)
+                intersection = fr_set.intersection(nfr_set)
 
-            dot_product = len(intersection)
+                dot_product = len(intersection)
 
-            magnitude_fr = math.sqrt(len(fr_set))
-            magnitude_nfr = math.sqrt(len(nfr_set))
+                magnitude_fr = math.sqrt(len(fr_set))
+                magnitude_nfr = math.sqrt(len(nfr_set))
 
-            if magnitude_fr * magnitude_nfr == 0:
-                cosine = 0.0
-            else:
-                cosine = dot_product / (magnitude_fr * magnitude_nfr)
-            
-            if do_thresholding:
-                if cosine >= similarity_threshold:
-                    cosine = 1
+                if magnitude_fr * magnitude_nfr == 0:
+                    cosine = 0.0
                 else:
-                    cosine = 0
+                    cosine = dot_product / (magnitude_fr * magnitude_nfr)
+                
+                if do_thresholding:
+                    if cosine >= similarity_threshold:
+                        cosine = 1
+                    else:
+                        cosine = 0
 
-            similarities.append(round(cosine, 3))
-
-        print(f"FR {count} Similarities to NFRs: {similarities}")
+                similarities.append(round(cosine, 3))
+            
+            similarities_string: str = f"FR {count} Similarities to NFRs: {similarities}"
+            
+            print(similarities_string)
+            output_file.write(similarities_string + "\n")
         
 
 
 if __name__ == "__main__":
-
-    
     with open("requirements.txt", "r") as f:
         lines = [line for line in f if line.strip()]
-
-        
-
     processed_lines = []
 
     for line in lines:
@@ -94,8 +91,6 @@ if __name__ == "__main__":
 
     nfrs = processed_lines[0:3]
     frs = processed_lines[3:]
-
-
 
     # print(frs)
     similarity(nfrs, frs)
