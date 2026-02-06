@@ -1,7 +1,3 @@
-
-Readme · MD
-Copy
-
 # Requirements Traceability
 
 ## Overview
@@ -15,7 +11,7 @@ The program processes `requirements.txt` which contains Non-Functional Requireme
 
 ## Installation and Usage
 
-## Method 1: Using UV (Recommended for WSL)
+### Method 1: Using UV (Recommended for WSL)
 
 1. **Clone the repository and navigate to the project directory:**
    ```bash
@@ -38,17 +34,34 @@ The program processes `requirements.txt` which contains Non-Functional Requireme
    uv sync
    ```
 
-5. **Open in VSCode (optional):**
+5. **Download required NLTK data:**
+   ```bash
+   uv run python
+   ```
+   
+   Then in the Python interpreter, run:
+   ```python
+   import nltk
+   nltk.download('punkt')
+   nltk.download('stopwords')
+   nltk.download('wordnet')
+   nltk.download('omw-1.4')
+   exit()
+   ```
+   
+   Type `exit()` to leave the Python interpreter.
+
+6. **Open in VSCode (optional):**
    ```bash
    code .
    ```
 
-6. **Run the program:**
+7. **Run the program:**
    ```bash
    uv run python main.py
    ```
 
-## Method 2: Using Python venv
+### Method 2: Using Python venv
 
 1. **Clone the repository:**
    ```bash
@@ -82,12 +95,29 @@ The program processes `requirements.txt` which contains Non-Functional Requireme
    pip install nltk
    ```
 
-6. **Open in VSCode (optional):**
+6. **Download required NLTK data:**
+   ```bash
+   python
+   ```
+   
+   Then in the Python interpreter, run:
+   ```python
+   import nltk
+   nltk.download('punkt')
+   nltk.download('stopwords')
+   nltk.download('wordnet')
+   nltk.download('omw-1.4')
+   exit()
+   ```
+   
+   Type `exit()` to leave the Python interpreter.
+
+7. **Open in VSCode (optional):**
    ```bash
    code .
    ```
 
-7. **Run the program:**
+8. **Run the program:**
    ```bash
    python main.py
    ```
@@ -98,6 +128,14 @@ The program processes `requirements.txt` which contains Non-Functional Requireme
 - NLTK library
 - UV (for Method 1)
 
+## Project Structure
+
+```
+Requirements_Traceability/
+├── main.py
+├── requirements.txt
+└── README.md
+```
 
 ## Course Information
 
