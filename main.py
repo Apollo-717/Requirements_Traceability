@@ -78,28 +78,28 @@ def similarity(nfrs, frs):
         
 
 
-
-
-    
-with open("requirements.txt", "r") as f:
-    lines = [line for line in f if line.strip()]
+if __name__ == "__main__":
 
     
+    with open("requirements.txt", "r") as f:
+        lines = [line for line in f if line.strip()]
 
-processed_lines = []
+        
 
-for line in lines:
-    tokens = word_tokenize(line)
-    processed_tokens = preprocess_tokens(tokens)
-    processed_lines.append(processed_tokens)
+    processed_lines = []
 
-processed_lines = [line[2:] for line in processed_lines]
-processed_lines = [[token for token in tokens if token not in string.punctuation] for tokens in processed_lines]
+    for line in lines:
+        tokens = word_tokenize(line)
+        processed_tokens = preprocess_tokens(tokens)
+        processed_lines.append(processed_tokens)
 
-nfrs = processed_lines[0:3]
-frs = processed_lines[3:]
+    processed_lines = [line[2:] for line in processed_lines]
+    processed_lines = [[token for token in tokens if token not in string.punctuation] for tokens in processed_lines]
+
+    nfrs = processed_lines[0:3]
+    frs = processed_lines[3:]
 
 
 
-# print(frs)
-similarity(nfrs, frs)
+    # print(frs)
+    similarity(nfrs, frs)
