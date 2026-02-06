@@ -24,6 +24,7 @@ do_stemming = True
 do_lemmatization = False
 do_parts_of_speech = False
 
+do_thresholding = False
 similarity_threshold = 0.2
 
 stop_words = set(stopwords.words('english'))
@@ -67,11 +68,12 @@ def similarity(nfrs, frs):
             else:
                 cosine = dot_product / (magnitude_fr * magnitude_nfr)
             
-            if cosine >= similarity_threshold:
-                cosine = 1
-            else:
-                cosine = 0
-
+            if do_thresholding:
+                if cosine >= similarity_threshold:
+                    cosine = 1
+                else:
+                    cosine = 0
+                    
             similarities.append(round(cosine, 3))
 
         print(f"FR {count} Similarities to NFRs: {similarities}")
