@@ -74,6 +74,26 @@ def similarity(nfrs, frs):
             print(similarities_string)
             output_file.write(similarities_string + "\n")
 
+def get_accuracy():
+    with open("output.txt", "r") as output_file:
+        output_lines = [line.strip() for line in output_file if line.strip()]
+    
+    with open("trace.txt", "r") as expected_file:
+        expected_lines = [line.strip() for line in expected_file if line.strip()]
+    
+    correct = 0
+    total = len(expected_lines)
+
+    for output_line, expected_line in zip(output_lines, expected_lines):
+        out_data = ",".join(output_line.split(",")[1:])
+        exp_data = ",".join(expected_line.split(",")[1:])
+        if out_data == exp_data:
+            correct += 1
+
+    accuracy = correct / total if total > 0 else 0
+    print(f"Accuracy: {accuracy:.2%}")
+
+
 
 if __name__ == "__main__":
     with open("input.txt", "r") as f:
@@ -93,3 +113,4 @@ if __name__ == "__main__":
 
     # print(frs)
     similarity(nfrs, frs)
+    get_accuracy()
