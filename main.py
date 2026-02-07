@@ -4,22 +4,18 @@ from nltk.stem import PorterStemmer, WordNetLemmatizer
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import string
-
-# nltk.download('punkt')
-# nltk.download('stopwords')
-# nltk.download('wordnet')
-# nltk.download('omw-1.4')
+from collections import Counter
 
 
-filename = "./requirements.txt"
+filename = "./input.txt"
 
 do_stop_words = True
 do_stemming = True
-do_lemmatization = False
+do_lemmatization = True
 do_parts_of_speech = False
 
 do_thresholding = True
-similarity_threshold = 0.2
+similarity_threshold = 0.4
 
 stop_words = set(stopwords.words('english'))
 stemmer = PorterStemmer()
@@ -43,18 +39,18 @@ def similarity(nfrs, frs):
     with open("output.txt", "w") as output_file:
         for fr_tokens in frs:
             count += 1
-            fr_set = set(fr_tokens)
+            fr_freq = Counter(fr_tokens)  
             similarities = []
 
             for nfr_tokens in nfrs:
-                nfr_set = set(nfr_tokens)
+                nfr_freq = Counter(nfr_tokens) 
 
-                intersection = fr_set.intersection(nfr_set)
+                all_terms = set(fr_freq.keys()).union(set(nfr_freq.keys()))
 
-                dot_product = len(intersection)
+                dot_product = sum(fr_freq.get(term, 0) * nfr_freq.get(term, 0) for term in all_terms)
 
-                magnitude_fr = math.sqrt(len(fr_set))
-                magnitude_nfr = math.sqrt(len(nfr_set))
+                magnitude_fr = math.sqrt(sum(freq ** 2 for freq in fr_freq.values()))
+                magnitude_nfr = math.sqrt(sum(freq ** 2 for freq in nfr_freq.values()))
 
                 if magnitude_fr * magnitude_nfr == 0:
                     cosine = 0.0
