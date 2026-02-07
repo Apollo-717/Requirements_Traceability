@@ -1,0 +1,64 @@
+NFR1: The system shall remain responsive with low latency during meetings, regardless of participant count, animations, AI Features, or background processing.
+NFR2: The system shall provide a consistent, intuitive user experience across devices, synchronizing preferences and minimizing complexity during navigation and meetings.
+NFR3: The system shall operate reliably with minimal crashes, accurate synchronization, robust logging, and seamless updates across all supported platforms.
+
+FR: rename the Zoom desktop app to Zoom Workplace 
+FR: provide personalized in-meeting toolbar customization 
+FR: support a multi-speaker video layout that dynamically rearranges participants 
+FR: allow meeting hosts to add meeting wallpapers 
+FR: provide dynamic emoji reactions that animate around participants video titles 
+FR: include portrait lighting to improve participant appearance 
+FR: support sign language interpretation in meetings 
+FR: allow hosts to share screens and broadcast to breakout rooms 
+FR: support Q&A in regular Zoom meetings 
+FR: combine the waiting for host and Waiting Room on meeting join screens 
+FR: increase the maximum number of recurring meetings to up to 60 occurrences 
+FR: capture sign language interpretation in cloud recordings 
+FR: support meeting removal via a decline option in the Meeting tab 
+FR: synchronize personalized toolbar customizations across signed-in devices 
+FR: consolidate Meeting and Calendar tabs in the workspace UI 
+FR: include updated icons and color themes 
+FR: allow users to select a primary meeting toolbar layout 
+FR: provide multiple color theme choices 
+FR: support refreshed meeting visuals and navigation 
+FR: isolate audio for environments with noisy backgrounds 
+FR: allow late-joining participants to unmute or start video 
+FR: improve lighting control settings 
+FR: integrate AI Companion tasks for scheduling meetings and summarizing content 
+FR: record in-person voice and transcribe using AI Companion 
+FR: offer live note-taking during meetings 
+FR: support smart recordings with real-time action item highlighting 
+FR: resolve known crash issues on desktop platforms 
+FR: fix duplicate scheduled meeting display issues 
+FR: fix calendar synchronization failures 
+FR: resolve stylus cursor issues during recordings 
+FR: publish release notes for all supported platforms 
+FR: apply mobile app store approvals 
+FR: support meeting features on visionOS devices 
+FR: support unread message count display in channels 
+FR: allow configurable meeting chat notification preferences 
+FR: support creation of sub-group chats within meeting chat 
+FR: allow proxy resolution via WinINet settings 
+FR: allow admins to configure keywords triggering notifications 
+FR: allow configuring default message notification preferences 
+FR: allow admin control of meeting on-top window behavior 
+FR: support banner meeting reminders 
+FR: notify users of OS version support deprecations 
+FR: allow upload and use of user-selected wallpapers 
+FR: integrate cloud file storage references 
+FR: enable breakouts based on poll results 
+FR: allow participants to delete, reply, and format chat messages 
+FR: preview images in chat threads 
+FR: send meeting screen messages across breakout rooms 
+FR: add multi-language support for interpreted captions 
+FR: improve OAuth token support for translation services 
+FR: add security and dependency updates per release 
+FR: reduce initialization retry time for services 
+FR: improve host language controls 
+FR: fix display issues in host control interfaces 
+FR: enable new languages for meeting translation 
+FR: improve error logging 
+FR: refine the join meeting experience dialogs 
+FR: provide access to Q&A in more meeting formats 
+FR: allow hosts to assign interpreter roles\ 
+FR: support enhanced meeting recording workflows 

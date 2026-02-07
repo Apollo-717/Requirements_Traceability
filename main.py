@@ -7,7 +7,7 @@ import string
 from collections import Counter
 
 
-filename = "./input.txt"
+filename = "./zoom.txt"
 
 do_stop_words = True
 do_stemming = True
@@ -15,7 +15,7 @@ do_lemmatization = True
 do_parts_of_speech = False
 
 do_thresholding = True
-similarity_threshold = 0.4
+similarity_threshold = 0.09
 
 stop_words = set(stopwords.words('english'))
 stemmer = PorterStemmer()
@@ -92,7 +92,7 @@ def get_accuracy():
 
 
 if __name__ == "__main__":
-    with open("input.txt", "r") as f:
+    with open("zoom.txt", "r") as f:
         lines = [line for line in f if line.strip()]
     processed_lines = []
 
