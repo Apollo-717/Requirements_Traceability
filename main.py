@@ -18,7 +18,7 @@ do_stemming = True
 do_lemmatization = False
 do_parts_of_speech = False
 
-do_thresholding = False
+do_thresholding = True
 similarity_threshold = 0.2
 
 stop_words = set(stopwords.words('english'))
@@ -69,11 +69,10 @@ def similarity(nfrs, frs):
 
                 similarities.append(round(cosine, 3))
             
-            similarities_string: str = f"FR {count} Similarities to NFRs: {similarities}"
+            similarities_string: str = f"FR{count},{similarities[0]},{similarities[1]},{similarities[2]}"
             
             print(similarities_string)
             output_file.write(similarities_string + "\n")
-        
 
 
 if __name__ == "__main__":
